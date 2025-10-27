@@ -1,0 +1,23 @@
+{{define "updateTaskForm"}}
+<form>
+    <div>
+        <input
+            type="text"
+            value="{{.Task}}"
+            name="task"
+            class="form-control"
+            placeholder="Enter a new task"
+        />
+    </div>
+    <div>
+        <input type="checkbox" name="done" {{if .Done}}checked{{end}} /> Done
+    </div>
+    <button
+        hx-put="/tasks/{{.Id}}"
+        hx-target="#taskList"
+        class="mt-2 btn btn-warning"
+    >
+        Update Task
+    </button>
+</form>
+{{end}}
